@@ -1,0 +1,29 @@
+openapi: 3.0.0
+info:
+  title: Scraping API
+  version: 1.0.0
+  description: An API for scraping websites using Puppeteer.
+paths:
+  /scrape:
+    get:
+      summary: Scrape a website using Puppeteer
+      parameters:
+        - name: url
+          in: query
+          description: The URL of the website to scrape
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response
+          content:
+            application/json:
+              example:
+                data: HTML content of the scraped page
+        "500":
+          description: Internal Server Error
+          content:
+            application/json:
+              example:
+                error: Internal Server Error
